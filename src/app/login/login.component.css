@@ -1,0 +1,141 @@
+/* Overall page layout */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f4f6; /* Light gray background */
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* Login box (card style) */
+  .login-box {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  /* Logo at the top */
+  .logo {
+    max-width: 180px;
+    margin-bottom: 2rem;
+  }
+  
+  /* Title */
+  .login-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #0072ce; /* FEPBlue brand blue */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form fields */
+  .form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s ease;
+  }
+  
+  input:focus {
+    border-color: #0072ce;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 114, 206, 0.2);
+  }
+  
+  /* Submit button */
+  .login-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #0072ce;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    margin-top: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #005ea8;
+  }
+  
+  .login-button:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+  }
+  
+  /* Forgot links */
+  .forgot-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .forgot-links a {
+    color: #0072ce;
+    text-decoration: none;
+    margin: 0 0.3rem;
+  }
+  
+  .forgot-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sign up section */
+  .signup-box {
+    margin-top: 2rem;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .signup-box a {
+    color: #0072ce;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-box a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 480px) {
+    .login-box {
+      padding: 2rem 1rem;
+    }
+  
+    .login-title {
+      font-size: 1.4rem;
+    }
+  
+    input {
+      font-size: 0.95rem;
+    }
+  
+    .login-button {
+      font-size: 0.95rem;
+    }
+  }
+  
