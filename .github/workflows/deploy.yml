@@ -25,10 +25,4 @@ jobs:
         run: npm run build -- --configuration production --base-href="/myblueApp/"
 
       - name: Deploy to GitHub Pages
-        run: |
-          npx angular-cli-ghpages \
-            --dir=dist/myblue-app/browser \
-            --name="tarunvemasani" \
-            --email="tarunvemasani454@gmail.com" \
-            --repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" \
-            --no-silent
+        run: npx angular-cli-ghpages --dir=dist/myblue-app/browser
