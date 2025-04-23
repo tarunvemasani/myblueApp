@@ -31,4 +31,4 @@ jobs:
 
       # 5. Deploy to GitHub Pages using angular-cli-ghpages
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/myblue-app
+        run: npx angular-cli-ghpages --dir=dist/myblue-app/browser
