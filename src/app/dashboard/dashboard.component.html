@@ -1,25 +1,27 @@
 <div class="dashboard-wrapper">
 
-    <!-- 🔹 Welcome Header -->
+    <!-- 🔹 Welcome Header (Heading skip: H1 -> H3) -->
     <div class="welcome-banner">
       <h1>Welcome TARUN VEMASANI</h1>
       <p>Last Login: Mon Apr 21 2025 09:49</p>
+      <h3>Quick Links</h3> <!-- 🔴 Skipping H2 here -->
     </div>
   
-    <!-- 🔹 Top Actions -->
+    <!-- 🔹 Top Actions (buttons with issues) -->
     <div class="action-grid">
       <div class="account-info-wrapper">
+        <!-- 🔴 Missing button label (aria) -->
         <button class="action-card" (click)="toggleAccountOptions()" aria-haspopup="true" [attr.aria-expanded]="showAccountOptions">
-          My Account Info
+          <!-- Missing clear text description -->
         </button>
         <ul *ngIf="showAccountOptions" class="account-options" role="menu">
           <li role="menuitem">
-            <button (click)="logout()" aria-label="Sign out from your account">Sign Out</button>
+            <button (click)="logout()">Sign Out</button> <!-- 🔴 No aria-label -->
           </li>
         </ul>
       </div>
   
-      <button class="action-card">Healthcare Cost Estimates</button>
+      <button class="action-card" style="outline: none;">Healthcare Cost Estimates</button> <!-- 🔴 No focus visible -->
       <button class="action-card">View Domestic Medical Claims</button>
       <button class="action-card">My Prescriptions <span class="badge-new">NEW</span></button>
       <button class="action-card">Ways to Earn Incentives</button>
@@ -32,76 +34,82 @@
       <!-- My Plan -->
       <div class="my-plan-box">
         <h2>My Plan</h2>
+  
+        <!-- PLAN -->
         <div class="plan-detail">
-          <div class="plan-icon">📘</div>
+          <!-- 🔴 Image missing alt -->
+          <img src="assets/plan-icon.png" class="plan-icon" />
           <div>
             <p><strong>PLAN:</strong> Basic Option Plan</p>
-            <a href="#">View My Benefits</a>
+            <!-- 🔴 Non-descriptive link -->
+            <a href="#">View</a>
           </div>
         </div>
+  
+        <!-- MEMBER ID -->
         <div class="plan-detail">
           <div class="plan-icon">🪪</div>
           <div>
             <p><strong>MEMBER ID:</strong> R123456789</p>
-            <a href="#">View Member ID Card</a>
+            <a href="#">View</a> <!-- 🔴 Non-descriptive again -->
           </div>
         </div>
       </div>
   
       <!-- Get Care -->
-<div class="get-care-box">
-    <h2>Get Care</h2>
-    <ul class="care-list">
+      <div class="get-care-box">
+        <h2>Get Care</h2>
+        <ul class="care-list">
   
-      <li>
-        <div class="care-item">
-          <img src="assets/calllogo.png" alt="Phone icon" class="care-icon" />
-          <div>
-            <p><strong class="highlight-blue">Call the Nurse Line</strong></p>
-            <p>Get medical advice 24/7 from a registered nurse</p>
-          </div>
-        </div>
-        <span class="care-cost">FREE</span>
-      </li>
+          <li>
+            <div class="care-item">
+              <img src="assets/calllogo.png" class="care-icon" /> <!-- 🔴 No alt text -->
+              <div>
+                <p><strong class="highlight-blue">Call the Nurse Line</strong></p>
+                <p>Get medical advice 24/7 from a registered nurse</p>
+              </div>
+            </div>
+            <span class="care-cost" style="color: #ccc;">FREE</span> <!-- 🔴 Low contrast text -->
+          </li>
   
-      <li>
-        <div class="care-item">
-          <img src="assets/find.png" alt="Doctor icon" class="care-icon" />
-          <div>
-            <p><strong class="highlight-blue">Find a Provider</strong></p>
-            <p>Find doctors by name or specialty</p>
-          </div>
-        </div>
-        <span class="care-cost">$35–$50 Copay</span>
-      </li>
+          <li>
+            <div class="care-item">
+              <img src="assets/find.png" alt="Doctor icon" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Find a Provider</strong></p>
+                <p>Find doctors by name or specialty</p>
+              </div>
+            </div>
+            <span class="care-cost">$35–$50 Copay</span>
+          </li>
   
-      <li>
-        <div class="care-item">
-          <img src="assets/talktodoctor.png" alt="Video call icon" class="care-icon" />
-          <div>
-            <p><strong class="highlight-blue">Talk to a Virtual Doctor</strong></p>
-            <p>Call or video chat 24/7 through Teladoc Health®</p>
-          </div>
-        </div>
-        <span class="care-cost">FREE</span>
-      </li>
+          <li>
+            <div class="care-item">
+              <img src="assets/talktodoctor.png" alt="Video call icon" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Talk to a Virtual Doctor</strong></p>
+                <p>Call or video chat 24/7 through Teladoc Health®</p>
+              </div>
+            </div>
+            <span class="care-cost">FREE</span>
+          </li>
   
-      <li>
-        <div class="care-item">
-          <img src="assets/findurgent.png" alt="Hospital icon" class="care-icon" />
-          <div>
-            <p><strong class="highlight-blue">Find Urgent Care</strong></p>
-            <p>Find immediate care for non-life-threatening issues</p>
-          </div>
-        </div>
-        <span class="care-cost">FREE</span>
-      </li>
+          <li>
+            <div class="care-item">
+              <img src="assets/findurgent.png" alt="Hospital icon" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Find Urgent Care</strong></p>
+                <p>Find immediate care for non-life-threatening issues</p>
+              </div>
+            </div>
+            <span class="care-cost">FREE</span>
+          </li>
   
-    </ul>
-  </div>
-  
+        </ul>
+      </div>
   
     </div>
+  
   </div>
   
   
