@@ -28,7 +28,7 @@ jobs:
         run: |
           npx angular-cli-ghpages \
             --dir=dist/myblue-app/browser \
-            --name="GitHub Actions Bot" \
-            --email="actions@github.com" \
+            --name="tarunvemasani" \
+            --email="tarunvemasani454@gmail.com" \
             --repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" \
             --no-silent
