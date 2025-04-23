@@ -32,8 +32,8 @@ jobs:
       # 5. Deploy to GitHub Pages using angular-cli-ghpages
       - name: Setup Git Config (for angular-cli-ghpages)
         run: |
-        git config user.name "tarunvemasani"
-        git config user.email "tarunvemasani454@gmail.com"
+          git config user.name "tarunvemasani"
+          git config user.email "tarunvemasani454@gmail.com"
 
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/myblue-app/browser
