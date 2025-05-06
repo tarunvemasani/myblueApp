@@ -10,9 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  updatedAt: string = new Date('2025-04-14T14:46:00').toLocaleString();
-  unreadMessages: number = 1;
-  showAccountOptions: boolean = false;
+  showAccountOptions = false;
 
   constructor(private router: Router) {}
 
@@ -21,9 +19,6 @@ export class DashboardComponent {
   }
 
   logout(): void {
-    this.showAccountOptions = false;
-    localStorage.clear();
     this.router.navigate(['/login']);
   }
 }
-
