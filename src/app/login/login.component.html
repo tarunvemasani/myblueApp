@@ -1,47 +1,55 @@
-
 <div class="login-page">
-    <div class="login-box">
-      <img src="assets/BluecrossLogo.png" alt="FEP Blue Cross Blue Shield Logo" class="logo" />
-  
-      <h1 class="login-title">Login</h1>
-  
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input
-            id="username"
-            formControlName="username"
-            type="text"
-            autocomplete="username"
-            required
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            id="password"
-            formControlName="password"
-            type="password"
-            autocomplete="current-password"
-            required
-          />
-        </div>
-  
-        <button type="submit" class="login-button" [disabled]="loginForm.invalid">
-          Login
-        </button>
-  
-        <div class="forgot-links">
-          <a href="#">Forgot Username?</a>
-          <span>|</span>
-          <a href="#">Forgot Password?</a>
-        </div>
-      </form>
-  
-      <div class="signup-box">
-        <p>New to MyBlue? <a href="#">Sign up</a></p>
+  <div class="login-box">
+    <img src="assets/tcs.jpg" alt="TCS Logo" class="logo" />
+
+    <h1 class="login-title">Login</h1>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          formControlName="username"
+          type="text"
+          autocomplete="username"
+          required
+          aria-required="true"
+          placeholder="Enter username"
+        />
       </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          aria-required="true"
+          placeholder="Enter password"
+        />
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <!-- Forgot links -->
+      <div class="forgot-links">
+        <a href="#">Forgot Username?</a>
+        <span>|</span>
+        <a href="#">Forgot Password?</a>
+      </div>
+    </form>
+
+    <!-- Signup -->
+    <div class="signup-box">
+      <p>New to MyBlue? <a href="#">Sign up</a></p>
     </div>
   </div>
-  
+</div>

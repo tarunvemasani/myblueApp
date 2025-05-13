@@ -1,227 +1,230 @@
 .dashboard-wrapper {
-    padding: 2rem;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f5f6fa;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+}
+
+.welcome-banner {
+  margin-bottom: 2rem;
+}
+
+.welcome-banner h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #003366;
+}
+
+.welcome-banner p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+/* ✅ NEW: Replacing .action-list with .action-buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-card {
+  background-color: #0072ce;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  min-width: 220px;
+  flex: 1 1 auto;
+}
+
+.action-card:hover {
+  background-color: #005ea8;
+}
+
+.badge-new {
+  background-color: #ff4500;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Fix alignment for dropdown button */
+.account-info-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.account-info-wrapper .action-card {
+  width: 100%;
+}
+
+/* Dropdown menu */
+.account-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 1000;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.account-options li button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.account-options li button:hover {
+  background-color: #f3f3f3;
+}
+
+/* Plan + Care Boxes */
+.plan-care-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.my-plan-box,
+.get-care-box {
+  flex: 1 1 300px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.my-plan-box h2,
+.get-care-box h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #003366;
+  text-align: center;
+}
+
+.plan-detail {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.plan-icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.care-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.care-list li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 0;
+}
+
+.care-cost {
+  font-weight: bold;
+  color: #0072ce;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .plan-care-section {
+    flex-direction: column;
   }
-  
-  .welcome-banner {
-    margin-bottom: 2rem;
+
+  .action-buttons {
+    flex-direction: column;
   }
-  
-  .welcome-banner h1 {
-    font-size: 1.6rem;
-    margin: 0;
-    color: #003366;
-  }
-  
-  .welcome-banner p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-top: 0.25rem;
-  }
-  
-  .action-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
+
   .action-card {
     width: 100%;
-    background-color: #0072ce;
-    color: white;
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-align: center;
   }
-  
-  .action-card:hover {
-    background-color: #005ea8;
-  }
-  
-  .badge-new {
-    background-color: #ff4500;
-    color: white;
-    font-size: 0.7rem;
-    padding: 2px 6px;
-    border-radius: 10px;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-  
-  /* Fix alignment for dropdown button */
-  .account-info-wrapper {
-    display: flex;
-    align-items: stretch;
-  }
-  
-  .account-info-wrapper .action-card {
-    width: 100%;
-  }
-  
-  /* Dropdown menu */
-  .account-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 0 0 6px 6px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    min-width: 160px;
-    z-index: 1000;
-    list-style: none;
-    padding: 0.5rem 0;
-  }
-  
-  .account-options li button {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 0.5rem 1rem;
-    text-align: left;
+}
+
+@media (max-width: 480px) {
+  .action-card {
     font-size: 0.95rem;
-    cursor: pointer;
-    color: #333;
+    padding: 1rem;
   }
-  
-  .account-options li button:hover {
-    background-color: #f3f3f3;
-  }
-  
-  .plan-care-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .my-plan-box,
-  .get-care-box {
-    flex: 1 1 300px;
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  }
-  
-  .my-plan-box h2,
-  .get-care-box h2 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #003366;
-    text-align: center;
-  }
-  
-  .plan-detail {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-  }
-  
-  .plan-icon {
-    font-size: 1.5rem;
-    margin-right: 0.75rem;
-  }
-  
-  .care-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .care-list li {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee;
-    padding: 0.75rem 0;
-  }
-  
-  .care-cost {
-    font-weight: bold;
-    color: #0072ce;
-  }
-  
-  /* Responsive Fixes */
-  @media (max-width: 768px) {
-    .plan-care-section {
-      flex-direction: column;
-    }
-  
-    .action-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .action-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .action-card {
-      font-size: 0.95rem;
-      padding: 1rem;
-    }
-  }
-  .care-item {
-    display: flex;
-    align-items:stretch;
-    gap: 0.75rem;
-  }
-  
-  .care-icon {
-    width: 40px;
+}
+
+/* Care Items */
+.care-item {
+  display: flex;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.care-icon {
+  width: 40px;
   height: auto;
   object-fit: contain;
   padding-top: 0.75rem;
-  }
+}
 
-  .highlight-blue {
-    color: #0072ce; /* FEPBlue brand blue */
-  }
+.highlight-blue {
+  color: #0072ce;
+}
 
-  .skip-link {
-    position: absolute;
-    left: -999px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    z-index: 100;
-    background: #0072ce;
-    color: white;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  
-  .skip-link:focus {
-    left: 16px;
-    top: 16px;
-    width: auto;
-    height: auto;
-    font-size: 1rem;
-  }
-  
-  .action-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  
-  .action-list-item {
-    display: flex;
-  }
-  
+/* Skip link (a11y) */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 100;
+  background: #0072ce;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+}
 
-  
+/* 🔴 Optional testing buttons */
+.a11y-test-buttons {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
 
-  
+.unlabeled-button,
+.icon-button {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}

@@ -1,145 +1,120 @@
 <!-- Main Content Area -->
 <main id="main-content" tabindex="-1" role="main">
+  <div class="dashboard-wrapper">
 
-    <div class="dashboard-wrapper">
-  
-      <!-- Welcome Header -->
-      <div class="welcome-banner" aria-live="polite">
-        <h1 id="welcome-heading" tabindex="-1">Welcome TARUN VEMASANI</h1>
+    <!-- Welcome Header -->
+    <div class="welcome-banner" aria-live="polite">
+      <h1 id="welcome-heading" tabindex="-1">Welcome TARUN VEMASANI</h1>
+      <p id="last-login-text" tabindex="-1">Last Login: Mon Apr 21 2025 09:49</p>
+      <!-- 🔵 Intentionally skipping H2 -->
+      <h3 id="quick-links-heading" tabindex="-1">Quick Links</h3>
+    </div>
+
+    <!-- 🔹 Action Buttons (no <ul>) -->
+    <div class="action-buttons">
       
-        <!-- Make Last Login focusable -->
-        <p id="last-login-text" tabindex="-1">Last Login: Mon Apr 21 2025 09:49</p>
-      
-        <!-- 🔵 Heading Skipped: H3 (intentionally wrong) -->
-        <h3 id="quick-links-heading" tabindex="-1">Quick Links</h3>
-      </div>
-      
-  
-      <!-- 🔹 Quick Links as List -->
-      <ul class="action-list" role="list">
-        <!-- 🔴 Scenario 1: Missing button label -->
-        <li class="action-list-item">
-          <button class="action-card" (click)="toggleAccountOptions()" aria-haspopup="true" [attr.aria-expanded]="showAccountOptions">
-            <!-- NO Text Inside (missing label) -->
-          </button>
-          <ul *ngIf="showAccountOptions" class="account-options" role="menu">
-            <li role="menuitem">
-              <!-- 🔴 Scenario 1 again: No aria-label here -->
-              <button (click)="logout()">Sign Out</button>
-            </li>
-          </ul>
-        </li>
-  
-        <!-- 🔵 Scenario 1 continued: Bad button text (non-descriptive) -->
-        <li class="action-list-item">
-          <button class="action-card">Account Info</button>
-        </li>
-  
-        <li class="action-list-item">
-          <button class="action-card">Claims</button>
-        </li>
-  
-        <li class="action-list-item">
-          <button class="action-card">
-            My Prescriptions <span class="badge-new">NEW</span>
-          </button>
-        </li>
-  
-        <li class="action-list-item">
-          <button class="action-card">Ways to Earn Incentives</button>
-        </li>
-  
-        <li class="action-list-item">
-          <button class="action-card">Personal Health Record</button>
+      <!-- 🔴 Intentionally unlabeled button for NVDA testing -->
+      <button class="action-card"></button>
+
+      <!-- ✅ Labeled button with submenu -->
+      <button class="action-card" (click)="toggleAccountOptions()" aria-haspopup="true" aria-expanded="false">
+        My Account Info
+      </button>
+      <ul *ngIf="showAccountOptions" class="account-options" role="menu">
+        <li role="menuitem">
+          <button (click)="logout()">Sign Out</button>
         </li>
       </ul>
-  
-      <!-- 🔹 Plan + Get Care Section -->
-      <div class="plan-care-section">
-  
-        <!-- My Plan -->
-        <div class="my-plan-box">
-          <h2>My Plan</h2>
-  
-          <div class="plan-detail">
-            <!-- 🔴 Scenario 3: Image missing alt -->
-            <img src="assets/plan-icon.png" class="plan-icon" /> <!-- No alt attribute -->
-  
-            <div>
-              <p><strong>PLAN:</strong> Basic Option Plan</p>
-              <!-- 🔴 Scenario 1: Link not descriptive -->
-              <a href="#">View</a>
-            </div>
-          </div>
-  
-          <div class="plan-detail">
-            <div class="plan-icon">🪪</div>
-            <div>
-              <p><strong>MEMBER ID:</strong> R123456789</p>
-              <a href="#">View</a> <!-- Link not descriptive -->
-            </div>
-          </div>
-        </div>
-  
-        <!-- Get Care -->
-        <div class="get-care-box">
-          <h2>Get Care</h2>
-          <ul class="care-list">
-  
-            <li>
-              <div class="care-item">
-                <!-- 🔴 Scenario 3: Image missing alt -->
-                <img src="assets/calllogo.png" class="care-icon" />
-  
-                <div>
-                  <p><strong class="highlight-blue">Call the Nurse Line</strong></p>
-                  <p>Get medical advice 24/7 from a registered nurse</p>
-                </div>
-              </div>
-              <span class="care-cost" style="color: #0072ce;">FREE</span>
-            </li>
-  
-            <li>
-              <div class="care-item">
-                <!-- 🔴 Scenario 3: Empty alt text -->
-                <img src="assets/find.png" alt="" class="care-icon" />
-  
-                <div>
-                  <p><strong class="highlight-blue">Find a Provider</strong></p>
-                  <p>Find doctors by name or specialty</p>
-                </div>
-              </div>
-              <span class="care-cost">$35–$50 Copay</span>
-            </li>
-  
-            <li>
-              <div class="care-item">
-                <img src="assets/talktodoctor.png" alt="Virtual doctor icon" class="care-icon" />
-                <div>
-                  <p><strong class="highlight-blue">Talk to a Virtual Doctor</strong></p>
-                  <p>Call or video chat 24/7 through Teladoc Health®</p>
-                </div>
-              </div>
-              <span class="care-cost">FREE</span>
-            </li>
-  
-            <li>
-              <div class="care-item">
-                <img src="assets/findurgent.png" alt="Urgent care icon" class="care-icon" />
-                <div>
-                  <p><strong class="highlight-blue">Find Urgent Care</strong></p>
-                  <p>Find immediate care for non-life-threatening issues</p>
-                </div>
-              </div>
-              <span class="care-cost">FREE</span>
-            </li>
-  
-          </ul>
-        </div>
-  
-      </div>
-  
+
+      <!-- ✅ Other labeled buttons -->
+      <button class="action-card">Claims</button>
+      <button class="action-card">My Prescriptions <span class="badge-new">NEW</span></button>
+      <button class="action-card">Ways to Earn Incentives</button>
+      <button class="action-card">Personal Health Record</button>
     </div>
-  
-  </main>
-  
+
+    <!-- 🔹 Plan + Get Care Section -->
+    <div class="plan-care-section">
+
+      <!-- My Plan -->
+      <div class="my-plan-box">
+        <h2>My Plan</h2>
+
+        <div class="plan-detail">
+          <!-- 🔴 Missing alt text -->
+          <img src="assets/plan-icon.png" class="plan-icon" />
+          <div>
+            <p><strong>PLAN:</strong> Basic Option Plan</p>
+            <!-- 🔴 Non-descriptive link -->
+            <a href="#">View</a>
+          </div>
+        </div>
+
+        <div class="plan-detail">
+          <div class="plan-icon">🪪</div>
+          <div>
+            <p><strong>MEMBER ID:</strong> R123456789</p>
+            <a href="#">View</a> <!-- 🔴 Again, vague link -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Get Care -->
+      <div class="get-care-box">
+        <h2>Get Care</h2>
+        <ul class="care-list">
+
+          <!-- 🔴 Image with no alt -->
+          <li>
+            <div class="care-item">
+              <img src="assets/calllogo.png" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Call the Nurse Line</strong></p>
+                <p>Get medical advice 24/7 from a registered nurse</p>
+              </div>
+            </div>
+            <span class="care-cost" style="color: #0072ce;">FREE</span>
+          </li>
+
+          <!-- 🔴 Image with empty alt -->
+          <li>
+            <div class="care-item">
+              <img src="assets/find.png" alt="" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Find a Provider</strong></p>
+                <p>Find doctors by name or specialty</p>
+              </div>
+            </div>
+            <span class="care-cost">$35–$50 Copay</span>
+          </li>
+
+          <!-- ✅ Proper image alt -->
+          <li>
+            <div class="care-item">
+              <img src="assets/talktodoctor.png" alt="Virtual doctor icon" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Talk to a Virtual Doctor</strong></p>
+                <p>Call or video chat 24/7 through Teladoc Health®</p>
+              </div>
+            </div>
+            <span class="care-cost">FREE</span>
+          </li>
+
+          <!-- ✅ Proper image alt -->
+          <li>
+            <div class="care-item">
+              <img src="assets/findurgent.png" alt="Urgent care icon" class="care-icon" />
+              <div>
+                <p><strong class="highlight-blue">Find Urgent Care</strong></p>
+                <p>Find immediate care for non-life-threatening issues</p>
+              </div>
+            </div>
+            <span class="care-cost">FREE</span>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</main>
