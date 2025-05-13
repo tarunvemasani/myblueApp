@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   showAccountOptions = false;
+  dropdownOpen = false;
 
   constructor(private router: Router) {}
 
@@ -18,7 +19,19 @@ export class DashboardComponent {
     this.showAccountOptions = !this.showAccountOptions;
   }
 
+  toggleDropdown(): void {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
   logout(): void {
     this.router.navigate(['/login']);
+  }
+
+  viewProfile(): void {
+    alert('Profile clicked');
+  }
+
+  viewSettings(): void {
+    alert('Settings clicked');
   }
 }

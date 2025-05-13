@@ -1,3 +1,6 @@
+<!-- Skip link for accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- Main Content Area -->
 <main id="main-content" tabindex="-1" role="main">
   <div class="dashboard-wrapper">
@@ -6,18 +9,19 @@
     <div class="welcome-banner" aria-live="polite">
       <h1 id="welcome-heading" tabindex="-1">Welcome TARUN VEMASANI</h1>
       <p id="last-login-text" tabindex="-1">Last Login: Mon Apr 21 2025 09:49</p>
-      <!-- 🔵 Intentionally skipping H2 -->
       <h3 id="quick-links-heading" tabindex="-1">Quick Links</h3>
     </div>
 
-    <!-- 🔹 Action Buttons (no <ul>) -->
+    <!-- 🔹 Action Buttons -->
     <div class="action-buttons">
-      
-      <!-- 🔴 Intentionally unlabeled button for NVDA testing -->
+      <!-- 🔴 Intentionally unlabeled button for testing -->
       <button class="action-card"></button>
 
-      <!-- ✅ Labeled button with submenu -->
-      <button class="action-card" (click)="toggleAccountOptions()" aria-haspopup="true" aria-expanded="false">
+      <!-- My Account Info -->
+      <button class="action-card"
+              (click)="toggleAccountOptions()"
+              aria-haspopup="true"
+              [attr.aria-expanded]="showAccountOptions">
         My Account Info
       </button>
       <ul *ngIf="showAccountOptions" class="account-options" role="menu">
@@ -26,7 +30,6 @@
         </li>
       </ul>
 
-      <!-- ✅ Other labeled buttons -->
       <button class="action-card">Claims</button>
       <button class="action-card">My Prescriptions <span class="badge-new">NEW</span></button>
       <button class="action-card">Ways to Earn Incentives</button>
@@ -41,11 +44,9 @@
         <h2>My Plan</h2>
 
         <div class="plan-detail">
-          <!-- 🔴 Missing alt text -->
           <img src="assets/plan-icon.png" class="plan-icon" />
           <div>
             <p><strong>PLAN:</strong> Basic Option Plan</p>
-            <!-- 🔴 Non-descriptive link -->
             <a href="#">View</a>
           </div>
         </div>
@@ -54,7 +55,7 @@
           <div class="plan-icon">🪪</div>
           <div>
             <p><strong>MEMBER ID:</strong> R123456789</p>
-            <a href="#">View</a> <!-- 🔴 Again, vague link -->
+            <a href="#">View</a>
           </div>
         </div>
       </div>
@@ -63,8 +64,6 @@
       <div class="get-care-box">
         <h2>Get Care</h2>
         <ul class="care-list">
-
-          <!-- 🔴 Image with no alt -->
           <li>
             <div class="care-item">
               <img src="assets/calllogo.png" class="care-icon" />
@@ -76,7 +75,6 @@
             <span class="care-cost" style="color: #0072ce;">FREE</span>
           </li>
 
-          <!-- 🔴 Image with empty alt -->
           <li>
             <div class="care-item">
               <img src="assets/find.png" alt="" class="care-icon" />
@@ -88,7 +86,6 @@
             <span class="care-cost">$35–$50 Copay</span>
           </li>
 
-          <!-- ✅ Proper image alt -->
           <li>
             <div class="care-item">
               <img src="assets/talktodoctor.png" alt="Virtual doctor icon" class="care-icon" />
@@ -100,7 +97,6 @@
             <span class="care-cost">FREE</span>
           </li>
 
-          <!-- ✅ Proper image alt -->
           <li>
             <div class="care-item">
               <img src="assets/findurgent.png" alt="Urgent care icon" class="care-icon" />
@@ -111,10 +107,24 @@
             </div>
             <span class="care-cost">FREE</span>
           </li>
-
         </ul>
       </div>
-
     </div>
   </div>
+
+  <!-- ✅ Top-right Options Dropdown -->
+<div class="top-right-dropdown">
+  <button class="options-button"
+          (click)="toggleDropdown()"
+          aria-haspopup="true"
+          [attr.aria-expanded]="dropdownOpen">
+          Options <span class="black-arrow">{{ dropdownOpen ? '^' : 'v' }}</span>
+  </button>
+
+  <ul *ngIf="dropdownOpen" class="dropdown-menu" role="menu">
+    <li role="menuitem"><button (click)="viewProfile()">Profile</button></li>
+    <li role="menuitem"><button (click)="viewSettings()">Settings</button></li>
+    <li role="menuitem"><button (click)="logout()">Logout</button></li>
+  </ul>
+</div>
 </main>
