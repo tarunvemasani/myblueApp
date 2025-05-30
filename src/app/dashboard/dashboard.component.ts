@@ -1,7 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import axe from 'axe-core';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +9,7 @@ import axe from 'axe-core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent {
   showAccountOptions = false;
   dropdownOpen = false;
 
@@ -35,21 +34,4 @@ export class DashboardComponent implements AfterViewInit {
   viewSettings(): void {
     alert('Settings clicked');
   }
-
-  ngAfterViewInit(): void {
-    axe.run(document, {}, (err, results) => {
-      if (err) throw err;
-      results.violations.forEach(v => {
-        console.warn('Accessibility issue:', v);
-        v.nodes.forEach(node => {
-          const selector = node.target[0] as string;
-          const el = document.querySelector(selector);
-          if (el) {
-            el.classList.add('a11y-error');
-            el.setAttribute('data-issue', v.description);
-          }
-        });
-      });
-    });
-  }
-}
+} 
