@@ -1,40 +1,63 @@
 <!-- Skip link for accessibility -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-
 <!-- Main Content Area -->
-<main id="main-content" tabindex="-1" role="main">
+<main id="main-content" role="main">
   <div class="dashboard-wrapper">
+
+    <!-- ✅ Top-right Options Dropdown (moved to top of DOM) -->
+    <div class="top-right-dropdown">
+      <button class="options-button"
+              (click)="toggleDropdown()"
+              aria-haspopup="true"
+              [attr.aria-expanded]="dropdownOpen">
+        Options <span class="black-arrow">{{ dropdownOpen ? '^' : 'v' }}</span>
+      </button>
+
+      <ul *ngIf="dropdownOpen" class="dropdown-menu" role="menu">
+        <li role="menuitem"><button (click)="viewProfile()">Profile</button></li>
+        <li role="menuitem"><button (click)="viewSettings()">Settings</button></li>
+        <li role="menuitem"><button (click)="logout()">Logout</button></li>
+      </ul>
+    </div>
 
     <!-- Welcome Header -->
     <div class="welcome-banner" aria-live="polite">
-      <h1 id="welcome-heading" tabindex="-1">Welcome TARUN VEMASANI</h1>
-      <p id="last-login-text" tabindex="-1">Last Login: Mon Apr 21 2025 09:49</p>
-      <h3 id="quick-links-heading" tabindex="-1">Quick Links</h3>
+      <section role="region" aria-label="Welcome section">
+        <h1 id="welcome-heading">Welcome TARUN VEMASANI</h1>
+      </section>
+
+      <section role="region" aria-label="Last login information">
+        <p id="last-login-text">Last Login: Mon Apr 21 2025 09:49</p>
+      </section>
+
+      <section role="region" aria-label="Quick Links header">
+        <h3 id="quick-links-heading">Quick Links</h3>
+      </section>
     </div>
 
     <!-- 🔹 Action Buttons -->
     <div class="action-buttons">
-      <!-- 🔴 Intentionally unlabeled button for testing -->
-      <button class="action-card"></button>
+      <ul>
+        <li><button class="action-card" aria-label="Unlabeled button for testing"></button></li>
 
-      <!-- My Account Info -->
-      <button class="action-card"
-              (click)="toggleAccountOptions()"
-              aria-haspopup="true"
-              [attr.aria-expanded]="showAccountOptions">
-        My Account Info
-      </button>
-      <ul *ngIf="showAccountOptions" class="account-options" role="menu">
-        <li role="menuitem">
-          <button (click)="logout()">Sign Out</button>
+        <li>
+          <button class="action-card"
+                  (click)="toggleAccountOptions()"
+                  aria-haspopup="true"
+                  [attr.aria-expanded]="showAccountOptions">
+            My Account Info
+          </button>
+          <ul *ngIf="showAccountOptions" class="account-options" role="menu">
+            <li role="menuitem"><button (click)="logout()">Sign Out</button></li>
+          </ul>
         </li>
-      </ul>
 
-      <button class="action-card">Claims</button>
-      <button class="action-card">My Prescriptions <span class="badge-new">NEW</span></button>
-      <button class="action-card">Ways to Earn Incentives</button>
-      <button class="action-card">Personal Health Record</button>
+        <li><button class="action-card">Claims</button></li>
+        <li><button class="action-card">My Prescriptions <span class="badge-new">NEW</span></button></li>
+        <li><button class="action-card">Ways to Earn Incentives</button></li>
+        <li><button class="action-card">Personal Health Record</button></li>
+      </ul>
     </div>
 
     <!-- 🔹 Plan + Get Care Section -->
@@ -45,7 +68,7 @@
         <h2>My Plan</h2>
 
         <div class="plan-detail">
-          <img src="assets/plan-icon.png" class="plan-icon" />
+          <img src="assets/plan-icon.png" alt="Plan icon" class="plan-icon" />
           <div>
             <p><strong>PLAN:</strong> Basic Option Plan</p>
             <a href="#">View</a>
@@ -53,7 +76,7 @@
         </div>
 
         <div class="plan-detail">
-          <div class="plan-icon">🪪</div>
+          <div class="plan-icon" aria-hidden="true">🪪</div>
           <div>
             <p><strong>MEMBER ID:</strong> R123456789</p>
             <a href="#">View</a>
@@ -67,18 +90,18 @@
         <ul class="care-list">
           <li>
             <div class="care-item">
-              <img src="assets/calllogo.png" class="care-icon" />
+              <img src="assets/calllogo.png" class="care-icon" alt="Call Nurse Line icon" />
               <div>
                 <p><strong class="highlight-blue">Call the Nurse Line</strong></p>
                 <p>Get medical advice 24/7 from a registered nurse</p>
               </div>
             </div>
-            <span class="care-cost" style="color: #0072ce;">FREE</span>
+            <span class="care-cost">FREE</span>
           </li>
 
           <li>
             <div class="care-item">
-              <img src="assets/find.png" alt="" class="care-icon" />
+              <img src="assets/find.png" class="care-icon" alt="Find a Provider icon" />
               <div>
                 <p><strong class="highlight-blue">Find a Provider</strong></p>
                 <p>Find doctors by name or specialty</p>
@@ -89,7 +112,7 @@
 
           <li>
             <div class="care-item">
-              <img src="assets/talktodoctor.png" alt="Virtual doctor icon" class="care-icon" />
+              <img src="assets/talktodoctor.png" class="care-icon" alt="Virtual doctor icon" />
               <div>
                 <p><strong class="highlight-blue">Talk to a Virtual Doctor</strong></p>
                 <p>Call or video chat 24/7 through Teladoc Health®</p>
@@ -100,7 +123,7 @@
 
           <li>
             <div class="care-item">
-              <img src="assets/findurgent.png" alt="Urgent care icon" class="care-icon" />
+              <img src="assets/findurgent.png" class="care-icon" alt="Urgent care icon" />
               <div>
                 <p><strong class="highlight-blue">Find Urgent Care</strong></p>
                 <p>Find immediate care for non-life-threatening issues</p>
@@ -112,20 +135,4 @@
       </div>
     </div>
   </div>
-
-  <!-- ✅ Top-right Options Dropdown -->
-<div class="top-right-dropdown">
-  <button class="options-button"
-          (click)="toggleDropdown()"
-          aria-haspopup="true"
-          [attr.aria-expanded]="dropdownOpen">
-          Options <span class="black-arrow">{{ dropdownOpen ? '^' : 'v' }}</span>
-  </button>
-
-  <ul *ngIf="dropdownOpen" class="dropdown-menu" role="menu">
-    <li role="menuitem"><button (click)="viewProfile()">Profile</button></li>
-    <li role="menuitem"><button (click)="viewSettings()">Settings</button></li>
-    <li role="menuitem"><button (click)="logout()">Logout</button></li>
-  </ul>
-</div>
 </main>
